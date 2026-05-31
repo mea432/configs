@@ -81,7 +81,9 @@ sketchybar \
   \
   --add item keyboard right \
   --set keyboard \
+  icon.drawing=off \
   script="$PLUGIN_DIR/keyboard.sh" \
+  padding_left=4 \
   padding_right=4 \
   --subscribe keyboard input_change
 
