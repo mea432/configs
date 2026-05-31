@@ -29,10 +29,7 @@ sketchybar --default "${default[@]}"
 ##### Left Items #####
 
 sketchybar --add item apple left \
-  --set apple icon= label.drawing=off icon.padding_right=10 \
-  --add item front_app left \
-  --set front_app icon.drawing=off script="$PLUGIN_DIR/front_app.sh" \
-  --subscribe front_app front_app_switched
+  --set apple icon= label.drawing=off icon.padding_right=10
 
 sketchybar --add event aerospace_workspace_change
 sketchybar --add event aerospace_mode_change
@@ -43,6 +40,10 @@ sketchybar --add item window_title left \
   width=dynamic \
   script="$PLUGIN_DIR/aerospace_window_title.sh" \
   --subscribe window_title aerospace_workspace_change
+
+sketchybar --add item front_app left \
+  --set front_app icon.drawing=off script="$PLUGIN_DIR/front_app.sh" \
+  --subscribe front_app front_app_switched
 
 sketchybar --add item aerospace_mode left \
   --subscribe aerospace_mode aerospace_mode_change \
