@@ -1,0 +1,37 @@
+#!/bin/bash
+
+# Required parameters:
+# @raycast.schemaVersion 1
+# @raycast.title Toggle Tiling Window Manager
+# @raycast.mode silent
+
+# Optional parameters:
+# @raycast.icon 🤖
+
+# Documentation:
+# @raycast.description Toggle Aerospace, Jankyborders, and Sketchybar
+
+STATE_FILE="/tmp/aerospace_enabled_flag"
+
+if [ -f "$STATE_FILE" ]; then
+  # --- TURN EVERYTHING OFF ---
+  aerospace enable off
+  pkill -x borders
+  pkill -x sketchybar
+  rm "$STATE_FILE"
+  echo "AeroSpace & Borders: OFF"
+else
+  # --- TURN EVERYTHING ON ---
+  aerospace enable on
+
+  # Pre-emptively kill any ghost border processes
+  # pkill -x borders
+  # pkill -x sketchybar
+
+  # Start borders (adjust path if 'borders' isn't in your $PATH)
+  borders active_color=0xffeb212e inactive_color=0x00000000 width=5.0 &
+  sketchybar &
+
+  touch "$STATE_FILE"
+  echo "AeroSpace & Borders: ON"
+fi
