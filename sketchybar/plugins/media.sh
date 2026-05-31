@@ -28,11 +28,41 @@ case "$SENDER" in
 *) # Default update
   TITLE=$(nowplaying-cli get title)
   ARTIST=$(nowplaying-cli get artist)
-  if [[ -n "$TITLE" ]]; then
-    LABEL="$TITLE - $ARTIST"
-    sketchybar --set $NAME label="$LABEL" drawing=on
-  else
+  PLAYBACK_RATE=$(nowplaying-cli get playbackRate)
+
+  # Default to not paused
+  IS_PAUSED=0
+  # Check if PLAYBACK_RATE is a number before using bc
+  if [[ "$PLAYBACK_RATE" =~ ^[0-9.-]+$ ]]; then
+      if [ "$(echo "$PLAYBACK_RATE == 0" | bc -l)" -eq 1 ]; then
+          IS_PAUSED=1
+      fi
+  fi
+
+  # Treat "null" string as empty
+  if [[ "$TITLE" == "null" ]]; then
+    TITLE=""
+  fi
+  if [[ "$ARTIST" == "null" ]]; then
+    ARTIST=""
+  fi
+
+  # If both title and artist are empty, OR it's paused, then hide the item
+  if [[ (-z "$TITLE" && -z "$ARTIST") || $IS_PAUSED -eq 1 ]]; then
     sketchybar --set $NAME drawing=off
+  else
+    LABEL=""
+    if [[ -n "$TITLE" ]]; then
+      LABEL="$TITLE"
+    fi
+    if [[ -n "$ARTIST" ]]; then
+      if [[ -n "$LABEL" ]]; then
+        LABEL="$LABEL - $ARTIST"
+      else
+        LABEL="$ARTIST"
+      fi
+    fi
+    sketchybar --set $NAME label="$LABEL" drawing=on
   fi
   ;;
 esac

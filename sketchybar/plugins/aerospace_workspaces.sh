@@ -10,7 +10,10 @@ FOCUSED_WORKSPACE=$(aerospace list-workspaces --focused)
 # Filter out the focused workspace from the list of populated ones on the focused monitor
 UNFOCUSED_POPULATED=$(echo "$POPULATED_ON_FOCUSED_MONITOR" | grep -v -F -x "$FOCUSED_WORKSPACE")
 
-# Format the list for sketchybar
-FORMATTED_WORKSPACES=$(echo "$UNFOCUSED_POPULATED" | tr '\n' ' ')
-
-sketchybar --set $NAME label="$FORMATTED_WORKSPACES"
+if [ -z "$UNFOCUSED_POPULATED" ]; then
+  sketchybar --set $NAME drawing=off
+else
+  # Format the list for sketchybar
+  FORMATTED_WORKSPACES=$(echo "$UNFOCUSED_POPULATED" | tr '\n' ' ')
+  sketchybar --set $NAME drawing=on label="$FORMATTED_WORKSPACES"
+fi
