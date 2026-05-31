@@ -255,20 +255,20 @@ A = 'LG HDR 4K'
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
 [mode.service.binding]
     esc = ['reload-config', 'mode main', 'exec-and-forget sketchybar --trigger aerospace_mode_change']
-    r = ['flatten-workspace-tree', 'mode main'] # reset layout
-    f = ['layout floating tiling', 'mode main'] # Toggle between floating and tiling layout
-    backspace = ['close-all-windows-but-current', 'mode main']
+    r = ['flatten-workspace-tree', 'mode main', 'exec-and-forget sketchybar --trigger aerospace_mode_change'] # reset layout
+    f = ['layout floating tiling', 'mode main', 'exec-and-forget sketchybar --trigger aerospace_mode_change'] # Toggle between floating and tiling layout
+    backspace = ['close-all-windows-but-current', 'mode main', 'exec-and-forget sketchybar --trigger aerospace_mode_change']
 
     # sticky is not yet supported https://github.com/nikitabobko/AeroSpace/issues/2
     #s = ['layout sticky tiling', 'mode main']
 
-    ctrl-alt-cmd-shift-h = ['join-with left', 'mode main']
-    ctrl-alt-cmd-shift-j = ['join-with down', 'mode main']
-    ctrl-alt-cmd-shift-k = ['join-with up', 'mode main']
-    ctrl-alt-cmd-shift-l = ['join-with right', 'mode main']
+    ctrl-alt-cmd-shift-h = ['join-with left', 'mode main', 'exec-and-forget sketchybar --trigger aerospace_mode_change']
+    ctrl-alt-cmd-shift-j = ['join-with down', 'mode main', 'exec-and-forget sketchybar --trigger aerospace_mode_change']
+    ctrl-alt-cmd-shift-k = ['join-with up', 'mode main', 'exec-and-forget sketchybar --trigger aerospace_mode_change']
+    ctrl-alt-cmd-shift-l = ['join-with right', 'mode main', 'exec-and-forget sketchybar --trigger aerospace_mode_change']
 
 
-    z = ['fullscreen', 'mode main']
+    z = ['fullscreen', 'mode main', 'exec-and-forget sketchybar --trigger aerospace_mode_change']
 
 
 [mode.apps.binding]
