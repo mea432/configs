@@ -8,37 +8,37 @@
 -- e.g. vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")
 
 -- Create top bar
-vim.api.nvim_create_autocmd("BufWinEnter", {
-  callback = function()
-    local bt = vim.bo.buftype
-    local ft = vim.bo.filetype
-
-    if bt == "nofile" or bt == "prompt" or bt == "help" or bt == "terminal" or ft == "alpha" or ft == "dashboard" then
-      vim.opt_local.winbar = nil
-    else
-      local fullpath = vim.fn.expand("%:p") -- absolute path
-      local relpath = vim.fn.expand("%:.") -- relative to CWD
-      local filepath = ""
-      local prefix = ""
-
-      if fullpath ~= relpath then
-        -- Full and relative differ, so we can show relative
-        prefix = "./"
-        filepath = prefix .. relpath
-      else
-        -- File is outside of current working dir or couldn't get relative
-        prefix = ""
-        filepath = prefix .. vim.fn.expand("%:p:.") -- fallback to full path
-      end
-
-      -- Truncate long paths
-      local max_len = 50
-      if #filepath > max_len then
-        filepath = "…" .. string.sub(filepath, -max_len)
-      end
-
-      -- Right-align + modified flag + trimmed filepath + right-padding
-      vim.opt_local.winbar = "%=%m " .. filepath .. ""
-    end
-  end,
-})
+-- vim.api.nvim_create_autocmd("BufWinEnter", {
+--   callback = function()
+--     local bt = vim.bo.buftype
+--     local ft = vim.bo.filetype
+--
+--     if bt == "nofile" or bt == "prompt" or bt == "help" or bt == "terminal" or ft == "alpha" or ft == "dashboard" then
+--       vim.opt_local.winbar = nil
+--     else
+--       local fullpath = vim.fn.expand("%:p") -- absolute path
+--       local relpath = vim.fn.expand("%:.") -- relative to CWD
+--       local filepath = ""
+--       local prefix = ""
+--
+--       if fullpath ~= relpath then
+--         -- Full and relative differ, so we can show relative
+--         prefix = "./"
+--         filepath = prefix .. relpath
+--       else
+--         -- File is outside of current working dir or couldn't get relative
+--         prefix = ""
+--         filepath = prefix .. vim.fn.expand("%:p:.") -- fallback to full path
+--       end
+--
+--       -- Truncate long paths
+--       local max_len = 50
+--       if #filepath > max_len then
+--         filepath = "…" .. string.sub(filepath, -max_len)
+--       end
+--
+--       -- Right-align + modified flag + trimmed filepath + right-padding
+--       vim.opt_local.winbar = "%=%m " .. filepath .. " "
+--     end
+--   end,
+-- })

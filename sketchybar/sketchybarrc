@@ -1,0 +1,84 @@
+#!/bin/bash
+
+source "$CONFIG_DIR/colors.sh"
+PLUGIN_DIR="$CONFIG_DIR/plugins"
+
+##### Bar Appearance #####
+
+sketchybar --bar position=top height=40 blur_radius=10 color=$BAR_COLOR padding_left=10 padding_right=10
+
+##### Changing Defaults #####
+
+default=(
+  padding_left=5
+  padding_right=5
+  icon.font="Hack Nerd Font:Regular:15.0"
+  label.font="SF Pro:Semibold:15.0"
+  icon.color=$WHITE
+  label.color=$WHITE
+  icon.padding_left=10
+  icon.padding_right=0
+  label.padding_left=10
+  label.padding_right=10
+  background.color=$ITEM_BG_COLOR
+  background.corner_radius=5
+  background.height=24
+)
+sketchybar --default "${default[@]}"
+
+##### Left Items #####
+
+sketchybar --add item apple left \
+  --set apple icon= label.drawing=off icon.padding_right=10 \
+  --add item front_app left \
+  --set front_app icon.drawing=off script="$PLUGIN_DIR/front_app.sh" \
+  --subscribe front_app front_app_switched
+
+sketchybar --add event aerospace_workspace_change
+sketchybar -add event aerospace_mode_change
+
+sketchybar --add item window_title left \
+  --set window_title icon= label.font="SF Pro:Semibold:14.0" \
+  icon.padding_left=0 \
+  width=dynamic \
+  script="$PLUGIN_DIR/aerospace_window_title.sh" \
+  --subscribe window_title aerospace_workspace_change
+
+sketchybar --add item aerospace_mode left \
+  --subscribe aerospace_mode aerospace_mode_change \
+  --set aerospace_mode icon="󰪭" \
+  icon.font.size=25 \
+  script="$PLUGIN_DIR/aerospace_mode.sh" \
+  icon.color=0xaa99ffcc \
+  icon.padding_left=4 \
+  icon.padding_right=0 \
+  background.color=0x55ffeeaa \
+  background.drawing=on \
+  drawing=off
+
+##### Right Items #####
+
+sketchybar \
+  --add item clock right \
+  --set clock \
+  update_freq=10 \
+  icon=􀉉 \
+  script="$PLUGIN_DIR/clock.sh" \
+  \
+  --add item volume right \
+  --set volume \
+  script="$PLUGIN_DIR/volume.sh" \
+  padding_right=4 \
+  --subscribe volume volume_change \
+  \
+  --add item battery right \
+  --set battery \
+  update_freq=120 \
+  script="$PLUGIN_DIR/battery.sh" \
+  padding_right=4 \
+  --subscribe battery system_woke power_source_change
+
+##### Force all scripts to run the first time #####
+sketchybar --update
+
+sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$(aerospace list-workspaces --focused)

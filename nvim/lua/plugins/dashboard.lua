@@ -1,6 +1,7 @@
 -- Change the default ASCII banner/header
 return {
   "snacks.nvim",
+  lazy = false,
   opts = function(_, opts)
     opts.dashboard = opts.dashboard or {}
     opts.dashboard.preset = opts.dashboard.preset or {}
@@ -23,6 +24,11 @@ _____________________
     (__)\       )\/\
         ||----w |   
         ||     ||   
+]]
+    opts.dashboard.preset.header = [[
+  (\_/)             
+  ( •_•)            
+  / >🍪   want code?
 ]]
   end,
 }

@@ -28,6 +28,9 @@ return {
       hl.MsgSeparator = { bg = "NONE", fg = colors.fg }
       hl.WinBar = { bg = "NONE", fg = colors.fg }
       hl.WinBarNC = { bg = "NONE", fg = colors.comment }
+
+      -- hl.WinSeparator = { fg = colors.border_highlight, bold = true }
+      -- hl.VertSplit = { fg = colors.border_highlight }
     end,
   },
 }
