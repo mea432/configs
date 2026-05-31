@@ -35,7 +35,7 @@ sketchybar --add item apple left \
   --subscribe front_app front_app_switched
 
 sketchybar --add event aerospace_workspace_change
-sketchybar -add event aerospace_mode_change
+sketchybar --add event aerospace_mode_change
 
 sketchybar --add item window_title left \
   --set window_title icon= label.font="SF Pro:Semibold:14.0" \
@@ -53,8 +53,7 @@ sketchybar --add item aerospace_mode left \
   icon.padding_left=4 \
   icon.padding_right=0 \
   background.color=0x55ffeeaa \
-  background.drawing=on \
-  drawing=off
+  background.drawing=on
 
 ##### Right Items #####
 
@@ -82,3 +81,4 @@ sketchybar \
 sketchybar --update
 
 sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$(aerospace list-workspaces --focused)
+sketchybar --trigger aerospace_mode_change
