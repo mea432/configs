@@ -77,9 +77,13 @@ sketchybar \
   update_freq=120 \
   script="$PLUGIN_DIR/battery.sh" \
   padding_right=4 \
-  --subscribe battery system_woke power_source_change
-
-sketchybar --add alias TextInputMenuAgent right
+  --subscribe battery system_woke power_source_change \
+  \
+  --add item keyboard right \
+  --set keyboard \
+  script="$PLUGIN_DIR/keyboard.sh" \
+  padding_right=4 \
+  --subscribe keyboard input_change
 
 ##### Force all scripts to run the first time #####
 sketchybar --update
