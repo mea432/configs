@@ -46,6 +46,12 @@ sketchybar --add item front_app left \
   --set front_app icon.drawing=off script="$PLUGIN_DIR/front_app.sh" \
   --subscribe front_app front_app_switched
 
+sketchybar --add item aerospace_workspaces left \
+  --set aerospace_workspaces icon="􀄶" \
+  label.font="SF Pro:Semibold:14.0" \
+  script="$PLUGIN_DIR/aerospace_workspaces.sh" \
+  --subscribe aerospace_workspaces aerospace_workspace_change
+
 sketchybar --add item aerospace_mode left \
   --subscribe aerospace_mode aerospace_mode_change \
   --set aerospace_mode icon="󰪭" \
