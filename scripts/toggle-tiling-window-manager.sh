@@ -29,7 +29,8 @@ else
   # pkill -x sketchybar
 
   # Start borders (adjust path if 'borders' isn't in your $PATH)
-  borders active_color=0xffeb212e inactive_color=0x00000000 width=5.0 &
+  # borders active_color=0xffeb212e inactive_color=0x00000000 width=5.0 &
+  borders &
   sketchybar &
 
   touch "$STATE_FILE"
