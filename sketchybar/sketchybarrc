@@ -64,43 +64,6 @@ sketchybar --add item aerospace_mode left \
   background.drawing=on
 # icon.color=0xaa99ffcc # background.color=0x55ffeeaa \
 
-sketchybar --add item media left \
-  --set media icon="􀑪" \
-  script="$PLUGIN_DIR/media.sh" \
-  label.max_chars=25 \
-  update_freq=2 \
-  click_script="aerospace workspace M" \
-  background.drawing=off \
-  drawing=off \
-  --subscribe media mouse.entered
-
-sketchybar --add item media_back left \
-  --set media_back icon=􀊎 \
-  label.drawing=off \
-  click_script="nowplaying-cli previous" \
-  drawing=off \
-  background.drawing=off \
-  padding_left=0 \
-  padding_right=5
-
-sketchybar --add item media_play_pause left \
-  --set media_play_pause icon=􀊘 \
-  label.drawing=off \
-  click_script="nowplaying-cli togglePlayPause" \
-  drawing=off \
-  background.drawing=off \
-  padding_left=5 \
-  padding_right=5
-
-sketchybar --add item media_next left \
-  --set media_next icon=􀊐 \
-  label.drawing=off \
-  click_script="nowplaying-cli next" \
-  drawing=off \
-  background.drawing=off \
-  padding_left=5 \
-  padding_right=0
-
 ##### Right Items #####
 
 sketchybar \
@@ -131,6 +94,43 @@ sketchybar \
   padding_left=4 \
   padding_right=4 \
   --subscribe keyboard input_change
+
+sketchybar --add item media right \
+  --set media icon="􀑪" \
+  script="$PLUGIN_DIR/media.sh" \
+  label.max_chars=25 \
+  update_freq=2 \
+  click_script="aerospace workspace M" \
+  background.drawing=off \
+  drawing=off \
+  --subscribe media mouse.entered
+
+sketchybar --add item media_next right \
+  --set media_next icon=􀊐 \
+  label.drawing=off \
+  click_script="nowplaying-cli next" \
+  drawing=off \
+  background.drawing=off \
+  padding_left=0 \
+  padding_right=0
+
+sketchybar --add item media_play_pause right \
+  --set media_play_pause icon=􀊘 \
+  label.drawing=off \
+  click_script="nowplaying-cli togglePlayPause" \
+  drawing=off \
+  background.drawing=off \
+  padding_left=0 \
+  padding_right=0
+
+sketchybar --add item media_back right \
+  --set media_back icon=􀊎 \
+  label.drawing=off \
+  click_script="nowplaying-cli previous" \
+  drawing=off \
+  background.drawing=off \
+  padding_left=0 \
+  padding_right=0
 
 ##### Force all scripts to run the first time #####
 sketchybar --update
