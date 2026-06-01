@@ -69,7 +69,7 @@ sketchybar --add item media left \
   label.max_chars=25 \
   update_freq=2 \
   click_script="aerospace workspace M" \
-  --subscribe media mouse.entered mouse.exited
+  --subscribe media mouse.entered
 
 ##### Right Items #####
 

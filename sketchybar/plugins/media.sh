@@ -20,11 +20,6 @@ case "$SENDER" in
     ) &
   fi
   ;;
-
-"mouse.exited")
-  # Do nothing. Let the animation finish.
-  ;;
-
 *) # Default update
   TITLE=$(nowplaying-cli get title)
   ARTIST=$(nowplaying-cli get artist)
@@ -34,9 +29,9 @@ case "$SENDER" in
   IS_PAUSED=0
   # Check if PLAYBACK_RATE is a number before using bc
   if [[ "$PLAYBACK_RATE" =~ ^[0-9.-]+$ ]]; then
-      if [ "$(echo "$PLAYBACK_RATE == 0" | bc -l)" -eq 1 ]; then
-          IS_PAUSED=1
-      fi
+    if [ "$(echo "$PLAYBACK_RATE == 0" | bc -l)" -eq 1 ]; then
+      IS_PAUSED=1
+    fi
   fi
 
   # Treat "null" string as empty
