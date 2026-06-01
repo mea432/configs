@@ -271,6 +271,10 @@ A = 'LG HDR 4K'
 
     z = ['fullscreen', 'mode main', 'exec-and-forget sketchybar --trigger aerospace_mode_change', 'exec-and-forget sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE']
 
+    space = ['exec-and-forget nowplaying-cli togglePlayPause', 'mode main', 'exec-and-forget sketchybar --trigger aerospace_mode_change']
+    l = ['exec-and-forget nowplaying-cli next', 'mode main', 'exec-and-forget sketchybar --trigger aerospace_mode_change']
+    h = ['exec-and-forget nowplaying-cli previous', 'mode main', 'exec-and-forget sketchybar --trigger aerospace_mode_change']
+
 
 [mode.apps.binding]
   esc = ['mode main', 'exec-and-forget sketchybar --trigger aerospace_mode_change']
@@ -279,7 +283,7 @@ A = 'LG HDR 4K'
   b = ['exec-and-forget open /Applications/Arc.app', 'mode main', 'exec-and-forget sketchybar --trigger aerospace_mode_change']
   c = ['exec-and-forget open /System/Applications/Calendar.app', 'mode main', 'exec-and-forget sketchybar --trigger aerospace_mode_change']
   f = ['exec-and-forget open /System/Library/CoreServices/Finder.app', 'mode main', 'exec-and-forget sketchybar --trigger aerospace_mode_change']
-  i = ['exec-and-forget open /Applications/Adobe\ InDesign 2026.app', 'mode main', 'exec-and-forget sketchybar --trigger aerospace_mode_change']
+  i = ['exec-and-forget open -b com.adobe.InDesign', 'mode main', 'exec-and-forget sketchybar --trigger aerospace_mode_change']
   m = ['exec-and-forget open /System/Applications/Messages.app', 'mode main', 'exec-and-forget sketchybar --trigger aerospace_mode_change']
   n = ['exec-and-forget open /System/Applications/Notes.app', 'mode main', 'exec-and-forget sketchybar --trigger aerospace_mode_change']
   o = ['exec-and-forget open /Applications/Microsoft\ Outlook.app', 'mode main', 'exec-and-forget sketchybar --trigger aerospace_mode_change']
