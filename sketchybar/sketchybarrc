@@ -57,11 +57,12 @@ sketchybar --add item aerospace_mode left \
   --set aerospace_mode icon="󰪭" \
   icon.font.size=25 \
   script="$PLUGIN_DIR/aerospace_mode.sh" \
-  icon.color=0xaa99ffcc \
+  \
   icon.padding_left=4 \
   icon.padding_right=0 \
-  background.color=0x55ffeeaa \
+  \
   background.drawing=on
+# icon.color=0xaa99ffcc # background.color=0x55ffeeaa \
 
 sketchybar --add item media left \
   --set media icon="􀑪" \
@@ -70,8 +71,6 @@ sketchybar --add item media left \
   update_freq=2 \
   click_script="aerospace workspace M" \
   background.drawing=off \
-  border_width=2 \
-  border_color=0xffff0000 \
   drawing=off \
   --subscribe media mouse.entered
 
