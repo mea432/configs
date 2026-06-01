@@ -72,7 +72,35 @@ sketchybar --add item media left \
   background.drawing=off \
   border_width=2 \
   border_color=0xffff0000 \
+  drawing=off \
   --subscribe media mouse.entered
+
+sketchybar --add item media_back left \
+  --set media_back icon=􀊎 \
+  label.drawing=off \
+  click_script="nowplaying-cli previous" \
+  drawing=off \
+  background.drawing=off \
+  padding_left=0 \
+  padding_right=5
+
+sketchybar --add item media_play_pause left \
+  --set media_play_pause icon=􀊘 \
+  label.drawing=off \
+  click_script="nowplaying-cli togglePlayPause" \
+  drawing=off \
+  background.drawing=off \
+  padding_left=5 \
+  padding_right=5
+
+sketchybar --add item media_next left \
+  --set media_next icon=􀊐 \
+  label.drawing=off \
+  click_script="nowplaying-cli next" \
+  drawing=off \
+  background.drawing=off \
+  padding_left=5 \
+  padding_right=0
 
 ##### Right Items #####
 
