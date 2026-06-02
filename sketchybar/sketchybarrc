@@ -5,7 +5,7 @@ PLUGIN_DIR="$CONFIG_DIR/plugins"
 
 ##### Bar Appearance #####
 
-sketchybar --bar position=top height=40 blur_radius=10 padding_left=10 padding_right=10 color=$BAR_COLOR
+sketchybar --bar position=top height=40 blur_radius=10 padding_left=8 padding_right=8 color=$BAR_COLOR
 
 ##### Changing Defaults #####
 
@@ -44,10 +44,12 @@ sketchybar --add item window_title left \
 
 sketchybar --add item front_app left \
   --set front_app icon.drawing=off script="$PLUGIN_DIR/front_app.sh" \
+  padding_right=0 \
   --subscribe front_app front_app_switched
 
 sketchybar --add item aerospace_workspaces left \
   --set aerospace_workspaces icon="􀄶" \
+  icon.padding_left=4 \
   label.font="SF Pro:Semibold:14.0" \
   script="$PLUGIN_DIR/aerospace_workspaces.sh" \
   --subscribe aerospace_workspaces aerospace_workspace_change
@@ -55,7 +57,7 @@ sketchybar --add item aerospace_workspaces left \
 sketchybar --add item aerospace_mode left \
   --subscribe aerospace_mode aerospace_mode_change \
   --set aerospace_mode icon="󰪭" \
-  icon.font.size=25 \
+  icon.font.size=20 \
   script="$PLUGIN_DIR/aerospace_mode.sh" \
   \
   icon.padding_left=4 \
@@ -77,22 +79,18 @@ sketchybar \
   --add item volume right \
   --set volume \
   script="$PLUGIN_DIR/volume.sh" \
-  padding_right=4 \
   --subscribe volume volume_change \
   \
   --add item battery right \
   --set battery \
   update_freq=120 \
   script="$PLUGIN_DIR/battery.sh" \
-  padding_right=4 \
   --subscribe battery system_woke power_source_change \
   \
   --add item keyboard right \
   --set keyboard \
   icon.drawing=off \
   script="$PLUGIN_DIR/keyboard.sh" \
-  padding_left=4 \
-  padding_right=4 \
   --subscribe keyboard input_change
 
 sketchybar --add item media right \
