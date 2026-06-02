@@ -66,13 +66,24 @@ sketchybar --add item aerospace_mode left \
   background.drawing=on
 # icon.color=0xaa99ffcc # background.color=0x55ffeeaa \
 
+sketchybar --add item media left \
+  --set media icon="􀑪" \
+  script="$PLUGIN_DIR/media.sh" \
+  label.max_chars=25 \
+  update_freq=2 \
+  click_script="aerospace workspace M" \
+  background.drawing=off \
+  drawing=off \
+  --subscribe media mouse.entered
+
 ##### Right Items #####
 
 sketchybar \
   --add item clock right \
   --set clock \
-  update_freq=10 \
-  icon=􀉉 \
+  update_freq=60 \
+  \
+  icon.padding_left=0 \
   script="$PLUGIN_DIR/clock.sh" \
   padding_right=0 \
   \
@@ -91,17 +102,15 @@ sketchybar \
   --set keyboard \
   icon.drawing=off \
   script="$PLUGIN_DIR/keyboard.sh" \
-  --subscribe keyboard input_change
-
-sketchybar --add item media right \
-  --set media icon="􀑪" \
-  script="$PLUGIN_DIR/media.sh" \
-  label.max_chars=25 \
-  update_freq=2 \
-  click_script="aerospace workspace M" \
-  background.drawing=off \
-  drawing=off \
-  --subscribe media mouse.entered
+  --subscribe keyboard input_change \
+  \
+  --add item calendar right \
+  --set calendar \
+  update_freq=60 \
+  script="$PLUGIN_DIR/calendar.sh" \
+  icon.drawing=off \
+  background.drawing=on \
+  icon=􀉉
 
 # sketchybar --add item media_next right \
 #   --set media_next icon=􀊐 \

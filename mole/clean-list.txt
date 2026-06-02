@@ -1,0 +1,115 @@
+# Mole Cleanup Preview - 2026-06-01 23:26:37
+#
+# How to protect files:
+# 1. Copy any path below to ~/.config/mole/whitelist
+# 2. Run: mo clean --whitelist
+#
+# Example:
+#   /Users/*/Library/Caches/com.example.app
+#
+
+
+=== User essentials ===
+/Users/easonni/Library/Caches  # 18.60GB, 53 items
+/Users/easonni/Library/Logs  # 562.7MB, 18 items
+
+=== App caches ===
+/Users/easonni/Library/Saved Application State  # 86KB, 4 items
+/Users/easonni/Library/Suggestions  # 8.5MB, 18 items
+/Users/easonni/Library/Messages/StickerCache  # 27.4MB, 197 items
+/Users/easonni/Library/Messages/Caches/Previews/Attachments  # 1.27GB, 229 items
+/Users/easonni/Library/Messages/Caches/Previews/StickerCache  # 53.9MB, 196 items
+/Users/easonni/Library/Containers/com.apple.wallpaper.agent/Data/Library/Caches/com.apple.wallpaper.caches  # 997.3MB
+/Users/easonni/Library/Containers/com.apple.mediaanalysisd/Data/Library/Caches  # 456.8MB, 4 items
+/Users/easonni/Library/Containers/com.apple.mediaanalysisd/Data/tmp  # 7.6MB, 2 items
+/Users/easonni/Library/Containers/com.apple.AppStore/Data/Library/Caches  # 24.4MB, 4 items
+/Users/easonni/Library/Containers/com.apple.geod/Data/tmp  # 202.0MB, 670 items
+/Users/easonni/Library/Application Support/com.apple.wallpaper/aerials/thumbnails  # 8.0MB, 156 items
+/Users/easonni/Library/Caches/com.apple.helpd  # 41.8MB, 8 items
+/Users/easonni/Library/Caches/GeoServices  # 74.7MB, 8 items
+/Users/easonni/Library/Containers/com.apple.AvatarUI.AvatarPickerMemojiPicker/Data/Library/Caches/com.apple.AvatarKit  # 40.4MB
+/Users/easonni/Library/Containers/com.apple.AppleMediaServicesUI.UtilityExtension/Data/tmp  # 4.2MB, 10 items
+/Users/easonni/Library/Caches/com.apple.AppleMediaServices  # 7.5MB, 6 items
+/Users/easonni/Library/Caches/com.apple.parsecd  # 17.2MB, 14 items
+/Users/easonni/Library/Caches/com.apple.python  # 81.8MB, 4 items
+/Users/easonni/Library/Caches/com.apple.e5rt.e5bundlecache/25F71  # 33.7MB
+
+=== Browsers ===
+/Users/easonni/Library/Caches/com.apple.Safari  # 426KB, 3 items
+/Users/easonni/Library/Caches/company.thebrowser.Browser  # 20.4MB, 5 items
+
+=== Cloud & Office ===
+/Users/easonni/Library/Containers/com.microsoft.Word/Data/Library/Caches  # 227.8MB, 4 items
+/Users/easonni/Library/Containers/com.microsoft.Word/Data/tmp  # 599KB, 7 items
+/Users/easonni/Library/Containers/com.microsoft.Excel/Data/Library/Caches  # 189.3MB, 4 items
+/Users/easonni/Library/Containers/com.microsoft.Excel/Data/tmp  # 1.5MB, 2 items
+
+=== Developer tools ===
+/Users/easonni/.npm/_cacache  # 1.58GB, 2 items
+/Users/easonni/.npm/_npx  # 154.5MB, 7 items
+/Users/easonni/.npm/_logs  # 354KB, 13 items
+/Users/easonni/.cache/torch/hub  # 560.6MB
+/Users/easonni/.oh-my-zsh/cache  # 225KB, 5 items
+/Users/easonni/Documents/2025-26 School Year/SRP/5 - Fluids/Part 3/__pycache__  # 4KB
+/Users/easonni/Documents/2025-26 School Year/SRP/6 - Winter Lab Presentation/__pycache__  # 217KB
+/Users/easonni/Library/Developer/Xcode/UserData/IB Support/Simulator Devices  # 36.7MB
+/Users/easonni/Library/Caches/org.swift.swiftpm  # 510.0MB, 7 items
+/Users/easonni/Library/Caches/SentryCrash  # 12KB, 3 items
+/Users/easonni/.gemini/tmp  # 30.2MB, 28 items
+/Users/easonni/Library/Logs/CoreSimulator  # 1.4MB, 5 items
+/Users/easonni/Library/Caches/com.apple.dt.Xcode  # 2.4MB, 5 items
+/Users/easonni/Library/Application Support/Code/logs  # 1.2MB, 9 items
+/Users/easonni/Library/Application Support/Code/Cache/Cache_Data  # 328.2MB
+/Users/easonni/Library/Application Support/Code/CachedData/488a1f239235055e34e673291fb8d8c810886f81  # 10.7MB
+/Users/easonni/.vscode/extensions/ms-python.debugpy-2026.4.0-darwin-arm64  # 43.0MB
+/Users/easonni/Library/Caches/Homebrew  # 7.70GB, 222 items
+
+=== Applications ===
+/Users/easonni/Library/Caches/us.zoom.xos  # 262KB, 3 items
+/Users/easonni/Library/Application Support/Microsoft/Teams/Cache/Cache_Data  # 55.9MB
+/Users/easonni/Library/Application Support/Microsoft/Teams/Code Cache  # 32.4MB, 2 items
+/Users/easonni/Library/Application Support/Microsoft/Teams/GPUCache  # 558KB, 5 items
+/Users/easonni/Library/Caches/Adobe  # 61.2MB, 5 items
+/Users/easonni/Library/Caches/com.adobe.AdobeCRDaemon  # 82KB, 2 items
+/Users/easonni/Library/Caches/com.adobe.PremierePro.25  # 309KB, 4 items
+/Users/easonni/Library/Caches/com.adobe.acc.AdobeDesktopService  # 3.7MB, 3 items
+/Users/easonni/Library/Caches/com.adobe.crashreporter  # 153KB, 4 items
+/Users/easonni/Library/Caches/com.adobe.LogTransport.LogTransport  # 82KB, 2 items
+/Users/easonni/Library/Caches/com.adobe.CCXProcess  # 82KB, 2 items
+/Users/easonni/Library/Caches/com.adobe.ccd.helper  # 82KB, 2 items
+/Users/easonni/Library/Caches/com.adobe.InDesign  # 76.1MB, 5 items
+/Users/easonni/Library/Caches/com.adobe.accmac  # 82KB, 2 items
+/Users/easonni/Library/Caches/com.adobe.acc.AdobeCreativeCloud  # 82KB, 2 items
+/Users/easonni/Library/Caches/com.adobe.headlights.LogTransport2App  # 1.4MB, 3 items
+/Users/easonni/Library/Caches/com.adobe.AdobeIPCBroker  # 82KB, 2 items
+/Users/easonni/Library/Application Support/Adobe/Common/Media Cache Files  # 682KB, 129 items
+/Users/easonni  # 170KB, 2 items
+/Users/easonni/Library/Caches/com.mitchellh.ghostty  # 255KB, 5 items
+/Users/easonni/Library/Caches/notion.id  # 82KB, 2 items
+/Users/easonni/Library/Caches/com.raycast.macos/urlcache  # 7.8MB, 5 items
+/Users/easonni/Library/Caches/com.raycast.macos/fsCachedData  # 8.2MB, 15 items
+
+=== Virtualization ===
+
+=== Application Support ===
+
+=== App leftovers ===
+
+=== Apple Silicon updates ===
+
+=== Device backups & firmware ===
+
+=== Time Machine ===
+
+=== Large files ===
+
+=== System Data clues ===
+
+=== Project artifacts ===
+
+# ============================================
+# Summary
+# ============================================
+# Potential cleanup: 35.55GB
+# Items: 4145
+# Categories: 59
