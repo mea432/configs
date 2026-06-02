@@ -1,5 +1,4 @@
 #!/bin/bash
-#!/bin/bash
 
 # Get a list of all non-empty workspaces on the focused monitor
 POPULATED_ON_FOCUSED_MONITOR=$(aerospace list-workspaces --monitor focused --empty no)
