@@ -58,6 +58,8 @@ sketchybar --add item aerospace_mode left \
   --subscribe aerospace_mode aerospace_mode_change \
   --set aerospace_mode icon="󰪭" \
   icon.font.size=20 \
+  icon.color=$RED \
+  label.color=$RED \
   script="$PLUGIN_DIR/aerospace_mode.sh" \
   \
   icon.padding_left=4 \
