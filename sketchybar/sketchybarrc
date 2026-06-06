@@ -69,7 +69,7 @@ sketchybar --add item aerospace_mode left \
 sketchybar --add item media left \
   --set media icon="􀑪" \
   script="$PLUGIN_DIR/media.sh" \
-  label.max_chars=25 \
+  label.max_chars=40 \
   update_freq=2 \
   click_script="aerospace workspace M" \
   background.drawing=off \
@@ -86,11 +86,12 @@ sketchybar \
   icon.padding_left=0 \
   script="$PLUGIN_DIR/clock.sh" \
   padding_right=0 \
+  --subscribe clock system_woke \
   \
   --add item volume right \
   --set volume \
   script="$PLUGIN_DIR/volume.sh" \
-  --subscribe volume volume_change \
+  --subscribe volume volume_change system_woke \
   \
   --add item battery right \
   --set battery \
@@ -110,7 +111,8 @@ sketchybar \
   script="$PLUGIN_DIR/calendar.sh" \
   icon.drawing=off \
   background.drawing=on \
-  icon=􀉉
+  icon=􀉉 \
+  --subscribe calender system_woke
 
 # sketchybar --add item media_next right \
 #   --set media_next icon=􀊐 \

@@ -59,7 +59,8 @@ if [ "$(echo "$CURRENT_EVENT_JSON" | jq 'length')" -gt 0 ]; then
 
 else
   # No current event, so we check for the next upcoming event
-  NEXT_EVENT_JSON=$(ical list --from "now" -t "11:59pm" --limit 1 -o json)
+  # NEXT_EVENT_JSON=$(ical list --from "now" -t "11:59pm" --limit 1 -o json)
+  NEXT_EVENT_JSON=$(ical list --from "now" --limit 1 -o json)
 
   if [ "$(echo "$NEXT_EVENT_JSON" | jq 'length')" -gt 0 ]; then
     EVENT_INFO=$(echo "$NEXT_EVENT_JSON" | jq -r --argjson now_ts "$NOW_TS" '
@@ -95,7 +96,8 @@ else
     sketchybar --set calendar label="$LABEL" background.color=$BG_COLOR drawing=on
 
   else
-    # No upcoming events today, hide the widget
-    sketchybar --set calendar drawing=off
+    # # No upcoming events today, hide the widget
+    # sketchybar --set calendar drawing=off
+    sketchybar --set calendar label="No More Events Today" background.color=$BG_COLOR drawing=on
   fi
 fi

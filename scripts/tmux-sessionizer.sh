@@ -9,16 +9,11 @@ else
   selected=$(
     {
       echo "$HOME/.config"
-      echo "$HOME/Documents"
 
       find "$HOME/Desktop/Coding" \
-        "$HOME/Desktop/research projects" \
-        "$HOME/Documents/2025-26 School Year/Chem" \
-        "$HOME/Documents/2025-26 School Year/SRP" \
-        "$HOME/Documents/latex" \
-        "$HOME/Desktop/CS550/Projects" \
-        "$HOME/.config" \
+        "$HOME/Documents/research projects" \
         "$HOME/Documents" \
+        "$HOME/.config" \
         -mindepth 1 -maxdepth 1 -type d
     } | fzf
   )
