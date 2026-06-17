@@ -3,7 +3,7 @@
 -- Add any additional keymaps here
 
 -- Faster insert mode exit
-vim.keymap.set("i", "kj", "<Esc>", { desc = "Escape insert mode with kj" })
+--vim.keymap.set("i", "kj", "<Esc>", { desc = "Escape insert mode with kj" })
 
 -- Resize splits using <leader> + arrows
 vim.keymap.set("n", "<leader><Left>", "<C-w><", { desc = "Resize window left" })
@@ -15,4 +15,11 @@ vim.keymap.set("n", "<leader><Down>", "<C-w>-", { desc = "Resize window down" })
 vim.keymap.set("x", "<leader>p", '"_dP', { desc = "Paste without overwriting register" })
 
 -- tmux sessionizer
--- vim.keymap.set("n", "<leader>t", "<cmd>silent !tmux neww ~/tmux-sessionizer.sh<CR>")
+local map = vim.keymap.set
+
+-- Revert j/k to default Vim movement
+map({ "n", "x" }, "j", "j", { desc = "Down" })
+map({ "n", "x" }, "k", "k", { desc = "Up" })
+
+-- map ctrl-c to esc for ipynb.nvim
+vim.keymap.set("n", "<C-c>", "<Esc>", { noremap = true, silent = true })

@@ -84,7 +84,6 @@ sketchybar \
   --add item clock right \
   --set clock \
   update_freq=60 \
-  \
   icon.padding_left=0 \
   script="$PLUGIN_DIR/clock.sh" \
   padding_right=0 \
@@ -113,8 +112,9 @@ sketchybar \
   script="$PLUGIN_DIR/calendar.sh" \
   icon.drawing=off \
   background.drawing=on \
+  click_script="open -a 'Calendar'" \
   icon=􀉉 \
-  --subscribe calender system_woke
+  --subscribe calendar system_woke
 
 # sketchybar --add item media_next right \
 #   --set media_next icon=􀊐 \

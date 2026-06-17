@@ -10,7 +10,7 @@ else
     {
       echo "$HOME/.config"
 
-      find "$HOME/Desktop/Coding" \
+      find "$HOME/Documents/Coding" \
         "$HOME/Documents/research projects" \
         "$HOME/Documents" \
         "$HOME/.config" \

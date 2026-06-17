@@ -46,7 +46,7 @@ default-root-container-orientation = 'auto'
 # See https://nikitabobko.github.io/AeroSpace/guide#on-focus-changed-callbacks
 # See https://nikitabobko.github.io/AeroSpace/commands#move-mouse
 # Fallback value (if you omit the key): on-focused-monitor-changed = []
-# on-focused-monitor-changed = ['move-mouse monitor-lazy-center'] # Mouse lazily follows focused monitor (default in i3)
+on-focused-monitor-changed = ['move-mouse monitor-lazy-center'] # Mouse lazily follows focused monitor (default in i3)
 on-focus-changed = ['move-mouse window-lazy-center', 'exec-and-forget sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE'] # Mouse follows focused window and also update sketchybar
 
 # You can effectively turn off macOS "Hide application" (cmd-h) feature by toggling this flag
@@ -70,6 +70,8 @@ on-mode-changed = []
 # Force Workspace A to your vertical monitor
 [workspace-to-monitor-force-assignment]
 A = 'LG HDR 4K'
+1 = 'Built-in Retina Display'
+2 = 'LU28R55'
 
 # Possible values: (qwerty|dvorak|colemak)
 # See https://nikitabobko.github.io/AeroSpace/guide#key-mapping
@@ -221,7 +223,7 @@ A = 'LG HDR 4K'
     # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
     # alt-tab = 'workspace-back-and-forth'
     # See: https://nikitabobko.github.io/AeroSpace/commands#move-workspace-to-monitor
-    # alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
+    ctrl-alt-cmd-shift-tab = 'move-workspace-to-monitor --wrap-around next'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#mode
     ctrl-alt-cmd-semicolon = ['mode service', 'exec-and-forget sketchybar --trigger aerospace_mode_change']
