@@ -10,6 +10,8 @@ else
     {
       echo "$HOME/.config"
 
+      echo "$HOME/Documents/Summer 2026 MGH Intership/lab-notebook"
+
       find "$HOME/Documents/Coding" \
         "$HOME/Documents/research projects" \
         "$HOME/Documents" \
