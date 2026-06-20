@@ -30,19 +30,19 @@ require("lazy").setup({
 			version = "*",
 			dependencies = { "nvim-lua/plenary.nvim", { "nvim-telescope/telescope-fzf-native.nvim", build = "make" } },
 		},
-		-- { "nvim-treesitter/nvim-treesitter", lazy = false, build = ":TSUpdate" },
-		-- {
-		-- 	"folke/tokyonight.nvim",
-		-- 	config = function()
-		-- 		vim.cmd.colorscheme("tokyonight")
-		-- 	end,
-		-- },
+		{ "nvim-treesitter/nvim-treesitter", lazy = false, build = ":TSUpdate" },
 		{
-			"rose-pine/neovim",
+			"folke/tokyonight.nvim",
 			config = function()
-				vim.cmd.colorscheme("rose-pine-moon")
+				vim.cmd.colorscheme("tokyonight")
 			end,
 		},
+		-- {
+		-- 	"rose-pine/neovim",
+		-- 	config = function()
+		-- 		vim.cmd.colorscheme("rose-pine-moon")
+		-- 	end,
+		-- },
 		{
 		    "ThePrimeagen/harpoon",
 		    branch = "harpoon2",
