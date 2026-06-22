@@ -474,6 +474,7 @@ do
 
 
   vim.pack.add { gh "chomosuke/typst-preview.nvim" }
+  vim.pack.add { gh "christoomey/vim-tmux-navigator" }
 end
 
 -- ============================================================
