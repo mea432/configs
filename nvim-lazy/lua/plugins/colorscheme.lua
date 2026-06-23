@@ -15,7 +15,7 @@ return {
       -- Make line numbers brighter
       hl.LineNrAbove = { fg = "#999999", italic = false }
       hl.LineNrBelow = { fg = "#999999", italic = false }
-      hl.LineNr = { fg = "#999999", bold = false }
+      hl.LineNr = { fg = "#ffffff", bold = true }
       hl.CursorLineNr = { fg = "#ffffff", bold = true }
 
       -- Make top and bottom bars transparent

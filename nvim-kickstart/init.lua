@@ -408,10 +408,44 @@ do
   -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
   vim.pack.add { gh 'folke/tokyonight.nvim' }
   ---@diagnostic disable-next-line: missing-fields
+  -- require('tokyonight').setup {
+  --   styles = {
+  --     comments = { italic = false }, -- Disable italics in comments
+  --   },
+  -- }
+
+  ---@diagnostic disable-next-line: missing-fields
   require('tokyonight').setup {
+    transparent = true,
     styles = {
-      comments = { italic = false }, -- Disable italics in comments
+      sidebars = "transparent",
+      floats = "transparent",
     },
+
+    on_highlights = function(hl, colors)
+      -- Make comments brighter
+      hl.Comment = { fg = "#999999", italic = true }
+
+      -- Make line numbers brighter
+      hl.LineNrAbove = { fg = "#999999", italic = false }
+      hl.LineNrBelow = { fg = "#999999", italic = false }
+      hl.LineNr = { fg = "#999999", bold = false }
+      hl.CursorLineNr = { fg = "#ffffff", bold = true }
+
+      -- Make top and bottom bars transparent
+      hl.StatusLine = { bg = "NONE", fg = colors.fg }
+      hl.StatusLineNC = { bg = "NONE", fg = colors.comment }
+      hl.TabLine = { bg = "NONE", fg = colors.comment }
+      hl.TabLineFill = { bg = "NONE" }
+      hl.TabLineSel = { bg = "NONE", fg = colors.fg, bold = true }
+      hl.MsgArea = { bg = "NONE", fg = colors.fg }
+      hl.MsgSeparator = { bg = "NONE", fg = colors.fg }
+      hl.WinBar = { bg = "NONE", fg = colors.fg }
+      hl.WinBarNC = { bg = "NONE", fg = colors.comment }
+
+      -- hl.WinSeparator = { fg = colors.border_highlight, bold = true }
+      -- hl.VertSplit = { fg = colors.border_highlight }
+    end,
   }
 
   -- Load the colorscheme here.
@@ -475,6 +509,7 @@ do
 
   vim.pack.add { gh "chomosuke/typst-preview.nvim" }
   vim.pack.add { gh "christoomey/vim-tmux-navigator" }
+  vim.pack.add { gh "iamcco/markdown-preview.nvim" } -- Run vim.fn["mkdp#util#install"]() to complete the installation
 end
 
 -- ============================================================
