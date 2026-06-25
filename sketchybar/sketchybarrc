@@ -71,11 +71,16 @@ for monitor_id in $AEROSPACE_MONITORS; do
       label.padding_right=7 \
       label.drawing=off \
       background.drawing=off \
-      script="$PLUGIN_DIR/aerospace_workspaces.sh $monitor_id $workspace" \
-      click_script="aerospace workspace $workspace" \
-      --subscribe "$workspace_item" aerospace_workspace_change
+      click_script="aerospace workspace $workspace"
   done
 done
+
+sketchybar --add item aerospace_workspaces_updater left \
+  --set aerospace_workspaces_updater \
+  drawing=off \
+  updates=on \
+  script="$PLUGIN_DIR/aerospace_workspaces.sh" \
+  --subscribe aerospace_workspaces_updater aerospace_workspace_change
 
 sketchybar --add item aerospace_mode left \
   --subscribe aerospace_mode aerospace_mode_change \
