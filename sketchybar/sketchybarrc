@@ -35,24 +35,47 @@ sketchybar --add event aerospace_workspace_change
 sketchybar --add event aerospace_mode_change
 sketchybar --add event input_change AppleSelectedInputSourcesChangedNotification
 
-sketchybar --add item window_title left \
-  --set window_title icon= label.font="SF Pro:Semibold:14.0" \
-  icon.padding_left=0 \
-  width=dynamic \
-  script="$PLUGIN_DIR/aerospace_window_title.sh" \
-  --subscribe window_title aerospace_workspace_change
+# sketchybar --add item window_title left \
+#   --set window_title icon= label.font="SF Pro:Semibold:14.0" \
+#   icon.padding_left=0 \
+#   width=dynamic \
+#   script="$PLUGIN_DIR/aerospace_window_title.sh" \
+#   --subscribe window_title aerospace_workspace_change
 
 sketchybar --add item front_app left \
   --set front_app icon.drawing=off script="$PLUGIN_DIR/front_app.sh" \
   padding_right=0 \
   --subscribe front_app front_app_switched
 
-sketchybar --add item aerospace_workspaces left \
-  --set aerospace_workspaces icon="􀄶" \
-  icon.padding_left=4 \
-  label.font="SF Pro:Semibold:14.0" \
-  script="$PLUGIN_DIR/aerospace_workspaces.sh" \
-  --subscribe aerospace_workspaces aerospace_workspace_change
+AEROSPACE_MONITORS=$(aerospace list-monitors --format '%{monitor-id}' 2>/dev/null)
+if [ -z "$AEROSPACE_MONITORS" ]; then
+  AEROSPACE_MONITORS="1"
+fi
+
+AEROSPACE_WORKSPACES=$(aerospace list-workspaces --all 2>/dev/null)
+if [ -z "$AEROSPACE_WORKSPACES" ]; then
+  AEROSPACE_WORKSPACES="1 2 3 4 5 6 7 8 9 A B C D E F G I M N O P Q R S T U V W X Y Z"
+fi
+
+for monitor_id in $AEROSPACE_MONITORS; do
+  for workspace in $AEROSPACE_WORKSPACES; do
+    workspace_item="aerospace_workspace.$monitor_id.$workspace"
+    sketchybar --add item "$workspace_item" left \
+      --set "$workspace_item" \
+      display="$monitor_id" \
+      icon="$workspace" \
+      icon.padding_left=7 \
+      icon.padding_right=7 \
+      label="*" \
+      label.padding_left=0 \
+      label.padding_right=7 \
+      label.drawing=off \
+      background.drawing=off \
+      script="$PLUGIN_DIR/aerospace_workspaces.sh $monitor_id $workspace" \
+      click_script="aerospace workspace $workspace" \
+      --subscribe "$workspace_item" aerospace_workspace_change
+  done
+done
 
 sketchybar --add item aerospace_mode left \
   --subscribe aerospace_mode aerospace_mode_change \
@@ -68,15 +91,15 @@ sketchybar --add item aerospace_mode left \
   background.drawing=on
 # icon.color=0xaa99ffcc # background.color=0x55ffeeaa \
 
-sketchybar --add item media left \
-  --set media icon="􀑪" \
-  script="$PLUGIN_DIR/media.sh" \
-  label.max_chars=40 \
-  update_freq=2 \
-  click_script="aerospace workspace M" \
-  background.drawing=off \
-  drawing=off \
-  --subscribe media mouse.entered
+# sketchybar --add item media left \
+#   --set media icon="􀑪" \
+#   script="$PLUGIN_DIR/media.sh" \
+#   label.max_chars=40 \
+#   update_freq=2 \
+#   click_script="aerospace workspace M" \
+#   background.drawing=off \
+#   drawing=off \
+#   --subscribe media mouse.entered
 
 ##### Right Items #####
 
@@ -146,5 +169,6 @@ sketchybar \
 ##### Force all scripts to run the first time #####
 sketchybar --update
 
-sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$(aerospace list-workspaces --focused)
+FOCUSED_WORKSPACE=$(aerospace list-workspaces --focused 2>/dev/null)
+sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE="$FOCUSED_WORKSPACE"
 sketchybar --trigger aerospace_mode_change
