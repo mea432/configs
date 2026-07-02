@@ -96,15 +96,15 @@ sketchybar --add item aerospace_mode left \
   background.drawing=on
 # icon.color=0xaa99ffcc # background.color=0x55ffeeaa \
 
-# sketchybar --add item media left \
-#   --set media icon="􀑪" \
-#   script="$PLUGIN_DIR/media.sh" \
-#   label.max_chars=40 \
-#   update_freq=2 \
-#   click_script="aerospace workspace M" \
-#   background.drawing=off \
-#   drawing=off \
-#   --subscribe media mouse.entered
+sketchybar --add item media left \
+  --set media icon="􀑪" \
+  script="$PLUGIN_DIR/media.sh" \
+  label.max_chars=40 \
+  update_freq=2 \
+  click_script="aerospace workspace M" \
+  background.drawing=off \
+  drawing=off \
+  --subscribe media mouse.entered
 
 ##### Right Items #####
 

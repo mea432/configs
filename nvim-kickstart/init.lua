@@ -92,6 +92,8 @@ do
   -- Enable faster startup by caching compiled Lua modules
   vim.loader.enable()
 
+  require('vim._core.ui2').enable() -- enable core ui 2
+
   -- Set <space> as the leader key
   -- See `:help mapleader`
   --  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
@@ -100,6 +102,8 @@ do
 
   -- Set to true if you have a Nerd Font installed and selected in the terminal
   vim.g.have_nerd_font = true
+
+  vim.g.netrw_list_hide = '^\\.git,^\\.DS_Store$'
 
   -- [[ Setting options ]]
   --  See `:help vim.o`
