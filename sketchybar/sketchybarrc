@@ -42,11 +42,6 @@ sketchybar --add event input_change AppleSelectedInputSourcesChangedNotification
 #   script="$PLUGIN_DIR/aerospace_window_title.sh" \
 #   --subscribe window_title aerospace_workspace_change
 
-sketchybar --add item front_app left \
-  --set front_app icon.drawing=off script="$PLUGIN_DIR/front_app.sh" \
-  padding_right=0 \
-  --subscribe front_app front_app_switched
-
 AEROSPACE_MONITORS=$(aerospace list-monitors --format '%{monitor-id}' 2>/dev/null)
 if [ -z "$AEROSPACE_MONITORS" ]; then
   AEROSPACE_MONITORS="1"
@@ -81,6 +76,11 @@ sketchybar --add item aerospace_workspaces_updater left \
   updates=on \
   script="$PLUGIN_DIR/aerospace_workspaces.sh" \
   --subscribe aerospace_workspaces_updater aerospace_workspace_change
+
+sketchybar --add item front_app left \
+  --set front_app icon.drawing=off script="$PLUGIN_DIR/front_app.sh" \
+  padding_right=0 \
+  --subscribe front_app front_app_switched
 
 sketchybar --add item aerospace_mode left \
   --subscribe aerospace_mode aerospace_mode_change \
